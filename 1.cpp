@@ -10,7 +10,7 @@ using namespace std;
 class PasswordGenerator
 {
 
-    private:
+private:
     const char* upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
     const char* lowerChars = "abcdefghijklmnopqrstuvwxyz";
     const char* numberChars = "0123456789";
@@ -95,40 +95,40 @@ public:
     char* password;
 };
 
-int main(int argc,char *argv[])
+int main(int argc, char* argv[])
 {
     string parameter1;// разобраться с параметрами
-    const char* upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const char* lowerChars = "abcdefghijklmnopqrstuvwxyz";
-    const char* numberChars = "0123456789";
-    const char* symbols = "!#$%&()*+,-./|\\\"':;<=>?@[]^_`{}~";
+    const char upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    const char lowerChars = "abcdefghijklmnopqrstuvwxyz";
+    const char numberChars = "0123456789";
+    const char symbols = "!#$%&()*+,-./|\\\"':;<=>?@[]^_`{}~";
     int count;
     PasswordGenerator* password = new PasswordGenerator();
     string sprav[4] = { "-u указывает количество заглавных букв\n","-l указывает количество строчных букв\n", "- n указывает количество цифр\n","-s указывает количество спецсимволов\n" };
     printf("pwgen: \n");
     scanf("s", &parameter1); //создать строку 
     for (count = 0; count < 1; count++) {
-        if (parameter1 == upperChars) {
+        if (parameter1 = upperChars) {
             // создать условия для внесения в строку
-            
+            printf("uno");
         }
-        else if (parameter1 == lowerChars) {
+        else if (parameter1 = lowerChars) {
 
-            
+
         }
-        else if (parameter1 == "-h"|| parameter1 =="-help") {
+        else if (parameter1 == "-h" || parameter1 == "-help") {
 
             for (int i = 0; i < 4; i++) {
                 cout << "" << sprav[i] << endl;
             }
         }
-        else if (parameter1 == numberChars) {
+        else if (parameter1 = numberChars) {
 
-         
+
         }
-        else if (parameter1 == symbols) {
+        else if (parameter1 = symbols) {
 
-           
+
         }
         else {
             char* result = password->generate(2, 2, 2, 2);
