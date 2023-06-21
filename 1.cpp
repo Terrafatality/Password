@@ -97,37 +97,44 @@ public:
 
 int main(int argc, char* argv[])
 {
-    string parameter1;// разобраться с параметрами
-    const char upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    const char lowerChars = "abcdefghijklmnopqrstuvwxyz";
-    const char numberChars = "0123456789";
-    const char symbols = "!#$%&()*+,-./|\\\"':;<=>?@[]^_`{}~";
+    setlocale(LC_ALL, "Russian");
+    bool str = true;
+    string parameter1;// разобраться с параметрами(если будут)
+    string upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    string lowerChars = "abcdefghijklmnopqrstuvwxyz";
+    string numberChars = "0123456789";
+    string symbols = "!#$%&()*+,-./|\\\"':;<=>?@[]^_`{}~";
     int count;
     PasswordGenerator* password = new PasswordGenerator();
     string sprav[4] = { "-u указывает количество заглавных букв\n","-l указывает количество строчных букв\n", "- n указывает количество цифр\n","-s указывает количество спецсимволов\n" };
-    printf("pwgen: \n");
-    scanf("s", &parameter1); //создать строку 
-    for (count = 0; count < 1; count++) {
-        if (parameter1 = upperChars) {
-            // создать условия для внесения в строку
-            
+    do {
+        cout << "pwgen: ";
+        cin >> parameter1;
+        cout << "\n";
+        for (count = 0; count < 1; count++) {
+            if (parameter1 == "-h" || parameter1 == "-help") {
+
+                for (int i = 0; i < 4; i++) {
+                    cout << "" << sprav[i] << endl;
+                }
+
+            }
+            if (str = false) {
+                // создать условия для внесения в строку
+
+
+
+                return str;
+            }
+            else if (parameter1 != "-h" && parameter1 != "-help" && parameter1 != "-u" && parameter1 != "-s" && parameter1 != "-l" && parameter1 != "-n") {
+                char* result = password->generate(2, 2, 2, 2);
+                cout << result << endl;
+                cout << ("Ошибка ввода, используйте справку\n");
+                for (int i = 0; i < 4; i++) {
+                    cout << "" << sprav[i] << endl;
+                }
+
+            }
         }
-        else if (parameter1 = lowerChars) {
-
-
-        }
-
-        else if (parameter1 = numberChars) {
-
-
-        }
-        else if (parameter1 = symbols) {
-
-
-        }
-        else {
-            char* result = password->generate(2, 2, 2, 2);
-            cout << result << endl;
-        }
-    }
+    } while (parameter1 != "exit");
 }
