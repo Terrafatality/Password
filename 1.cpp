@@ -116,12 +116,7 @@ int main(int argc, char* argv[])
 
 
         }
-        else if (parameter1 == "-h" || parameter1 == "-help") {
 
-            for (int i = 0; i < 4; i++) {
-                cout << "" << sprav[i] << endl;
-            }
-        }
         else if (parameter1 = numberChars) {
 
 
