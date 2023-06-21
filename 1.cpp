@@ -110,7 +110,7 @@ int main(int argc, char* argv[])
     for (count = 0; count < 1; count++) {
         if (parameter1 = upperChars) {
             // создать условия для внесения в строку
-            printf("uno");
+            
         }
         else if (parameter1 = lowerChars) {
 
