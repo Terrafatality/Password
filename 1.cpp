@@ -6,7 +6,6 @@
 #include <vector>
 #include <algorithm>
 using namespace std;
-
 class PasswordGenerator
 {
 
@@ -100,11 +99,8 @@ int main(int argc, char* argv[])
     setlocale(LC_ALL, "Russian");
     bool str = true;
     string parameter1;// разобратьс€ с параметрами(если будут)
-    string upperChars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
-    string lowerChars = "abcdefghijklmnopqrstuvwxyz";
-    string numberChars = "0123456789";
-    string symbols = "!#$%&()*+,-./|\\\"':;<=>?@[]^_`{}~";
     int count;
+    int a = 0;
     PasswordGenerator* password = new PasswordGenerator();
     string sprav[4] = { "-u указывает количество заглавных букв\n","-l указывает количество строчных букв\n", "- n указывает количество цифр\n","-s указывает количество спецсимволов\n" };
     do {
@@ -122,11 +118,76 @@ int main(int argc, char* argv[])
             if (str = false) {
                 // создать услови€ дл€ внесени€ в строку
 
-
-
-                return str;
             }
-            else if (parameter1 != "-h" && parameter1 != "-help" && parameter1 != "-u" && parameter1 != "-s" && parameter1 != "-l" && parameter1 != "-n") {
+            if (parameter1 == "-u")
+            {
+                int N = 8;
+                char str[]{ "ABCDEFGHIJKLMNOPQRSTUVWXYZ" };
+                int strN = 30; // индекс последнего элемента в массиве
+                srand(time(0)); //инициализируем генератор случайных чисел
+                char* pass = new char[N + 1]; //выдел€ем пам€ть дл€ строки парол€
+                for (int i = 0; i < N; i++)
+                {
+                    pass[i] = str[rand() % strN]; //вставл€ем случайный символ
+
+                }
+                pass[N] = 0; //записываем в конец строки признак конца строки
+                cout << pass; //выводим пароль на экран
+                cout << "\n";
+
+            }
+            if (parameter1 == "-s") {
+                int N = 8;
+                char str[]{ "!#$%&()*+,-./|\\\"':;<=>?@[]^_`{}~" };
+                int strN = 35; // индекс последнего элемента в массиве
+                srand(time(0)); //инициализируем генератор случайных чисел
+                char* pass = new char[N + 1]; //выдел€ем пам€ть дл€ строки парол€
+                for (int i = 0; i < N; i++)
+                {
+                    pass[i] = str[rand() % strN]; //вставл€ем случайный символ
+
+                }
+                pass[N] = 0; //записываем в конец строки признак конца строки
+                cout << pass; //выводим пароль на экран
+                cout << "\n";
+            }
+            if (parameter1 == "-n")
+            {
+
+                int N = 8;
+                char str[]{ "0123456789" };
+                int strN = 11; // индекс последнего элемента в массиве
+                srand(time(0)); //инициализируем генератор случайных чисел
+                char* pass = new char[N + 1]; //выдел€ем пам€ть дл€ строки парол€
+                for (int i = 0; i < N; i++)
+                {
+                    pass[i] = str[rand() % strN]; //вставл€ем случайный символ
+
+                }
+                pass[N] = 0; //записываем в конец строки признак конца строки
+                cout << pass; //выводим пароль на экран
+                cout << "\n";
+            }
+
+            if (parameter1 == "-l")
+            {
+
+                int N = 8;
+                char str[]{ "abcdefghijklmnopqrstuvwxyz" };
+                int strN = 27; // индекс последнего элемента в массиве
+                srand(time(0)); //инициализируем генератор случайных чисел
+                char* pass = new char[N + 1]; //выдел€ем пам€ть дл€ строки парол€
+                for (int i = 0; i < N; i++)
+                {
+                    pass[i] = str[rand() % strN]; //вставл€ем случайный символ
+
+                }
+                pass[N] = 0; //записываем в конец строки признак конца строки
+                cout << pass; //выводим пароль на экран
+                cout << "\n";
+            }
+            if (sscanf(parameter1.c_str(), "%d", &a));
+            else if (a != 0 && a != 1 && a != 2 && a != 3 && a != 4 && a != 5 && a != 6 && a != 7 && a != 8 && a != 9 && parameter1 != "-h" && parameter1 != "-help" && parameter1 != "-u" && parameter1 != "-s" && parameter1 != "-l" && parameter1 != "-n") {
                 char* result = password->generate(2, 2, 2, 2);
                 cout << result << endl;
                 cout << ("ќшибка ввода, используйте справку\n");
